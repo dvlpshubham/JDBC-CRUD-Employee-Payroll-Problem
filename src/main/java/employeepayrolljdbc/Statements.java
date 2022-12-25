@@ -37,7 +37,7 @@ public class Statements {
      * Defined ResultSet object using executeQuery on statement.
      * While resultSet.next has value. employeePayroll object will have all column values for each row.
      * Adding the employeePayroll object to payrollArrayList.
-     * Printing the arrayList.
+     * Printing the arrayList
      */
     public void retrievePayroll() {
 

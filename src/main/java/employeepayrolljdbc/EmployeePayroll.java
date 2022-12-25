@@ -55,7 +55,7 @@ public class EmployeePayroll {
     }
 
     /**
-     * To String method to return ArrayList to Strings.
+     * To String method to return ArrayList to Strings
      */
     @Override
     public String toString() {

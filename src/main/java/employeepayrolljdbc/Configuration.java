@@ -19,7 +19,7 @@ public class Configuration {
      * Using Class.forName to load Database Driver for mysql.(Try catch to handle {@link ClassNotFoundException})
      * Created {@link Connection} object - connection.
      * Assigning value to connection using getConnection method from DriverManager Class by passing URL, USER_NAME and PASSWORD as arguments.
-     * Try catch to handle run time exception interacting mySql Database.
+     * Try catch to handle run time exception interacting mySql Database
      *
      * @return - connection object to be used while trying to run different Statements.
      */

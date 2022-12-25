@@ -16,7 +16,7 @@ public class EmployeeDatabase {
     /**
      * Method to getEmployeeDB.
      *
-     * @return - employeeDB.
+     * @return - employeeDB
      */
     public static ArrayList<EmployeePayroll> getEmployeeDB() {
         return employeeDB;

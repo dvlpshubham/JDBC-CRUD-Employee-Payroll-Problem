@@ -11,7 +11,7 @@ public class EployeePayrollJDBCMain {
 
 
     /**
-     * Main method.
+     * Main method
      * Created Configuration object - configuration.
      * Created Statements object using configuration.establishConnection method(returns connection) - statements
      * Calling retrievePayroll method for statements object. To print Table rows to console.
