@@ -1,9 +1,6 @@
 package employeepayrolljdbc;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +16,8 @@ public class Statements {
      * payrollArrayList - ArrayList of EmployeePayroll Type.
      */
     public final static String RETRIEVE_QUERY = "SELECT * from employee_payroll";
-    public final static String UPDATE_QUERY = "UPDATE employee_payroll SET Salary = 3000000 WHERE name = 'Shubham'";
+    public final static String UPDATE_QUERY = "UPDATE employee_payroll SET Salary = 3000000 WHERE name = 'Moinuddin'";
+    public final static String PREPARED_UPDATE_QUERY = "UPDATE employee_payroll SET Salary = ? WHERE name = ?";
     Connection connection;
     ArrayList<EmployeePayroll> payrollArrayList;
 
@@ -61,12 +59,14 @@ public class Statements {
     }
 
     /**
-     * Method to read the database and display in console.
+     * Method to update the database using Statement.
      * Initialized payrollArrayList using getEmployeeDB method from EmployeeDatabase Class.
      * created a Statement object and initialized in try block using createStatement method - statement.
      * executing statement using execute method with UPDATE_QUERY as param.
+     *
+     * @return - boolean value for Test Cases. True when updated value matched.
      */
-    public void updatePayroll() {
+    public boolean updatePayroll() {
 
         payrollArrayList = EmployeeDatabase.getEmployeeDB();
         Statement statement;
@@ -74,10 +74,50 @@ public class Statements {
         try {
             statement = connection.createStatement();
             statement.execute(UPDATE_QUERY);
-
+            for (EmployeePayroll employeePayroll : payrollArrayList) {
+                if (employeePayroll.getName().equals("Moinuddin")) {
+                    employeePayroll.setSalary(3000000);
+                    return true;
+                }
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
+    }
+
+    /**
+     * Method to update the database using Prepared Statement.
+     * Initialized payrollArrayList using getEmployeeDB method from EmployeeDatabase Class.
+     * created a Prepared Statement object and initialized in try block using prepareStatement method - preparedStatement.
+     * Setting expected values using setInt and setString method by passing index and value as arguments.
+     * executing prepared statement using execute method.
+     * Using for loop to transverse through payrollArrayList. If name matches to passed argument at index 1, set salary to passed argument.
+     *
+     * @return - boolean value for Test Cases. True when updated value matched.
+     */
+    public boolean updateByPreparedStatement() {
+
+        payrollArrayList = EmployeeDatabase.getEmployeeDB();
+        PreparedStatement preparedStatement;
+
+        try {
+            preparedStatement = connection.prepareStatement(PREPARED_UPDATE_QUERY);
+            preparedStatement.setInt(1, 50000);
+            preparedStatement.setString(2, "Shubham");
+            preparedStatement.execute();
+
+            for (EmployeePayroll employeePayroll : payrollArrayList) {
+                if (employeePayroll.getName().equals("Moinuddin")) {
+                    employeePayroll.setSalary(50000);
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+
     }
 }

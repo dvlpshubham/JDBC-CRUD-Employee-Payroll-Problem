@@ -22,5 +22,6 @@ public class EmployeePayrollJDBCMain {
         Statements statements = new Statements(configuration.establishConnection());
         statements.retrievePayroll();
         statements.updatePayroll();
+        statements.updateByPreparedStatement();
     }
 }
