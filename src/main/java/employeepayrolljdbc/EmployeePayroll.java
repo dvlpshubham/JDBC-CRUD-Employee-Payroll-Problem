@@ -3,7 +3,7 @@ package employeepayrolljdbc;
 /**
  * POJO Class for EmployeePayroll Entity.
  *
- * @author - Shubham Raj.
+ * @author - Shubham Raj
  */
 public class EmployeePayroll {
     int id;
@@ -54,8 +54,112 @@ public class EmployeePayroll {
         this.netPay = netPay;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getBasicPay() {
+        return basicPay;
+    }
+
+    public void setBasicPay(double basicPay) {
+        this.basicPay = basicPay;
+    }
+
+    public double getDeductions() {
+        return deductions;
+    }
+
+    public void setDeductions(double deductions) {
+        this.deductions = deductions;
+    }
+
+    public double getTaxablePay() {
+        return taxablePay;
+    }
+
+    public void setTaxablePay(double taxablePay) {
+        this.taxablePay = taxablePay;
+    }
+
+    public double getIncomeTax() {
+        return incomeTax;
+    }
+
+    public void setIncomeTax(double incomeTax) {
+        this.incomeTax = incomeTax;
+    }
+
+    public double getNetPay() {
+        return netPay;
+    }
+
+    public void setNetPay(double netPay) {
+        this.netPay = netPay;
+    }
+
     /**
-     * To String method to return ArrayList to Strings
+     * To String method to return ArrayList to Strings.
      */
     @Override
     public String toString() {
